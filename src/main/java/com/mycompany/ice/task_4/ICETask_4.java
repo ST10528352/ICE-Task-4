@@ -1,8 +1,6 @@
 package com.mycompany.ice.task_4;
 
 public class ICETask_4 {
-
-public class MultipleCatchBlocks {
  
     public static void main(String[] args) {
  
@@ -24,6 +22,27 @@ public class MultipleCatchBlocks {
             System.out.println("Error: An arithmetic problem occurred.");
             System.out.println("Details: " + e.getMessage());
         }
+        
+         // 6. Program continues after the first exception has been handled
+        System.out.println("Program continues after the array exception.\n");
+ 
+        // 3. Second try block: intentionally divide a number by zero
+        try {
+            System.out.println("Attempting to divide " + numbers[0] + " by zero...");
+            int result = numbers[0] / 0;
+            System.out.println("Result: " + result); // never reached
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Invalid array index.");
+            System.out.println("Details: " + e.getMessage());
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide a number by zero.");
+            System.out.println("Details: " + e.getMessage());
+        }
+ 
+        // 6. Program continues after the second exception has been handled
+        System.out.println("Program continues after the arithmetic exception.\n");
+ 
+        // 7. Final message
+        System.out.println("Program completed successfully.");
     }
-  }
 }
